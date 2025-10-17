@@ -1,0 +1,20 @@
+import React, { createContext, useState } from 'react';
+import all_product from '../Components/Assets/all_product';
+
+export const ShopContext = createContext();
+
+const ShopContextProvider = (props) => {
+  const [products] = useState(all_product);
+
+  const contextValue = {
+    all_product: products,
+  };
+
+  return (
+    <ShopContext.Provider value={contextValue}>
+      {props.children}
+    </ShopContext.Provider>
+  );
+};
+
+export default ShopContextProvider;
